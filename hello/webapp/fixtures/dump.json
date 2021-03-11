@@ -1,0 +1,134 @@
+[
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "name": "new"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "name": "Done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-03-11T10:40:08.254Z",
+    "updated_at": "2021-03-11T10:40:08.254Z",
+    "summary": "write db",
+    "description": "dwjfhdu heufiowjh heuwioqyewhd bciwogyeb",
+    "status": 1,
+    "type": 1
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-03-11T10:40:40.180Z",
+    "updated_at": "2021-03-11T10:40:40.180Z",
+    "summary": "read XXX",
+    "description": "dfkdjgi ervjifokvnfdj nueihv",
+    "status": 2,
+    "type": 2
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "created_at": "2021-03-11T10:42:04.412Z",
+    "updated_at": "2021-03-11T10:42:04.412Z",
+    "summary": "update Tracker",
+    "description": "",
+    "status": 3,
+    "type": 3
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-03-11T10:43:15.848Z",
+    "updated_at": "2021-03-11T10:43:15.848Z",
+    "summary": "documents",
+    "description": "dcuhdu cusigdbc uiwhxoa hioxwhsx chuwh",
+    "status": 1,
+    "type": 2
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-03-11T10:44:15.433Z",
+    "updated_at": "2021-03-11T10:44:15.433Z",
+    "summary": "otchet",
+    "description": "wjhrfcuh hewuchu hcucwipqxu",
+    "status": 3,
+    "type": 3
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-03-11T10:44:38.609Z",
+    "updated_at": "2021-03-11T10:44:38.609Z",
+    "summary": "dhgfyegu",
+    "description": "vferuhvuioehbf",
+    "status": 1,
+    "type": 1
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$L8JEdbqWodvg$I2jN50uq1xmNRT92JvJtvcfxqKJ5CErlTqF3KPqSVPA=",
+    "last_login": "2021-03-11T10:18:14.490Z",
+    "is_superuser": true,
+    "username": "adminka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-03-11T10:18:08.024Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
