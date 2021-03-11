@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from webapp.views import (
     IndexView,
-    TaskView
+    TaskView,
+    task_create_view
 )
 
 
@@ -25,5 +26,6 @@ from webapp.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='list-task'),
-    path('<int:pk>/', TaskView.as_view(), name='view-task')
+    path('<int:pk>/', TaskView.as_view(), name='view-task'),
+    path('add/', task_create_view, name='add-task')
 ]

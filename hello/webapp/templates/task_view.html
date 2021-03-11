@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{#{% block menu %}#}
-{#    <li><a href="{% url "article-add" %}">Создать статью</a></li>#}
+{% block menu %}
+    <li><a href="{% url "add-task" %}">Create task</a></li>
 {#    <li><a href="{% url "article-update" article.id %}">Редактировать статью</a></li>#}
 {#    <li><a href="{% url "article-delete" article.id %}">Удалить статью</a></li>#}
-{#{% endblock menu %}#}
+{% endblock menu %}
 
 {% block page_header %}Задача {{ task.id }}{% endblock page_header %}
 
