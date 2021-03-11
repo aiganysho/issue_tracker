@@ -12,5 +12,5 @@ class TaskForm(forms.ModelForm):
         fields = ('summary', 'description', 'type', 'status')
 
 
-# class ArticleDeleteForm(forms.Form):
-#     title = forms.CharField(max_length=120, required=True, label='Введите название статьи, чтобы удалить её')
+class TaskDeleteForm(forms.Form):
+    summary = forms.CharField(max_length=200, required=True, label='Enter name task , to delete!')
