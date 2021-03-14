@@ -23,56 +23,63 @@ class TaskView(TemplateView):
         kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
         return super().get_context_data(**kwargs)
 
-def task_create_view(request):
+class CreateTask(TemplateView):
+    template_name = 'task_create.html'
 
-    if request.method == "GET":
+    def get_context_data(self, **kwargs):
         form = TaskForm()
-        return render(request, 'task_create.html', context={'form': form})
-    elif request.method == "POST":
+        kwargs['form'] = form
+        return super().get_context_data(**kwargs)
+
+    def post(self, request):
         form = TaskForm(data=request.POST)
         if form.is_valid():
             task = Task.objects.create(
                 summary=form.cleaned_data.get('summary'),
-                description=form.cleaned_data.get('description')
+                description=form.cleaned_data.get('description'),
+                status=form.cleaned_data.get('status'),
+                type=form.cleaned_data.get('type')
             )
             return redirect('view-task', pk=task.id)
-        return render(request, 'task_create.html', context={'form': form})
+        return render(request, self.template_name, context={'form': form})
 
-def task_update_view(request, pk):
 
-    task = get_object_or_404(Task, id=pk)
+class UpdateTask(TemplateView):
+    template_name = 'task_update.html'
 
-    if request.method == 'GET':
+    def get_context_data(self, **kwargs):
+        task = get_object_or_404(Task, id=kwargs.get('pk'))
         form = TaskForm(initial={
             'summary': task.summary,
             'description': task.description
         })
-        return render(request, 'task_update.html', context={'form': form, 'task': task})
-    elif request.method == 'POST':
+        kwargs['form'] = form
+        kwargs['task'] = task
+        return super().get_context_data(**kwargs)
+
+    def post(self, request, **kwargs):
+        task = get_object_or_404(Task, id=kwargs.get('pk'))
         form = TaskForm(data=request.POST)
         if form.is_valid():
             task.summary = form.cleaned_data.get('summary'),
             task.description = form.cleaned_data.get('description')
             task.save()
-            return redirect('article-view', pk=task.id)
+            return redirect('view-task', pk=kwargs.get('pk'))
+        kwargs['form'] = form
+        kwargs['task'] = task
+        return render(request, self.template_name, context={'form': form, 'task': task})
 
-        return render(request, 'task_update.html', context={'form': form, 'task': task })
 
+class DeleteTask(TemplateView):
+    template_name = 'task_delete.html'
 
-def task_delete_view(request, pk):
+    def get_context_data(self, **kwargs):
+        kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
+        return super().get_context_data(**kwargs)
 
-    task = get_object_or_404(Task, id=pk)
-
-    if request.method == 'GET':
-        form = TaskDeleteForm()
-        return render(request, 'task_delete.html', context={'task': task, 'form': form})
-    elif request.method == 'POST':
-        form = TaskDeleteForm(data=request.POST)
-        if form.is_valid():
-            if form.cleaned_data['summary'] != task.summary:
-                form.errors['summary'] = ['Названия статей не совпадают']
-                return render(request, 'task_delete.html', context={'task': task, 'form': form})
-
-            task.delete()
-            return redirect('list-task')
-        return render(request, 'task_delete.html', context={'task': task, 'form': form})
+    def post(self, request, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
+        # form = TaskDeleteForm(data=request.POST)
+        task.delete()
+        return redirect('list-task')
+        # return render(request, self.template_name, context={'task': task, 'form': form})

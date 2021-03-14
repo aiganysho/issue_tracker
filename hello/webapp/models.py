@@ -1,12 +1,11 @@
 from django.db import models
 
-# status_choices = [("New", "новый"), ("In Progres", "в процессе"), ("Done", "выполнено")]
-# type_choices = [("Task", "задача"), ("Bug", "ошибка"), ("Enhancement", "улучшение")]
+
 # Create your models here.
 
 
 class BaseModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
