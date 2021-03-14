@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 
 {% block menu %}
-    <li><a href="{% url "add-task" %}">Create task</a></li>
-{#    <li><a href="{% url "article-update" article.id %}">Редактировать статью</a></li>#}
-{#    <li><a href="{% url "article-delete" article.id %}">Удалить статью</a></li>#}
+          <li><a href="{% url "add-task" %}">Create task</a></li>
+          <li><a href="{% url "delete-task" task.id %}">Delete task</a></li>
+          <li><a href="{% url "update-task" task.id %}">Update task</a></li>
 {% endblock menu %}
 
 {% block page_header %}Задача {{ task.id }}{% endblock page_header %}
 
 {% block content %}
-    <p>Summary: {{ task.summary }}</p>
-    <p>Description: {{ task.description }}</p>
-    <p>Status: {{ task.status }}</p>
-    <p>Type: {{ task.type }}</p>
-    <p>Time create: {{ task.created_at }}</p>
-    <p>Time update: {{ task.updated_at }}</p>
-
+    <div class="card text-dark bg-info mb-3" style="max-width: 45rem;">
+  <div class="card-header">Issue tracker</div>
+  <div class="card-body">
+    <p class="card-text">Summary: {{ task.summary }}</p>
+    <p class="card-text">Description: {{ task.description }}</p>
+    <p class="card-text">Status: {{ task.status }}</p>
+    <p class="card-text">Type: {{ task.type }}</p>
+    <p class="card-text">Time create: {{ task.created_at }}</p>
+    <p class="card-text">Time update: {{ task.updated_at }}</p>
+  </div>
+</div>
 {% endblock content %}

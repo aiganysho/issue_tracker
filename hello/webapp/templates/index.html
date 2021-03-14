@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block menu %}<li><a href="{% url "add-task" %}">Create task</a></li>{% endblock menu %}
-
 {% block title %}задачи{% endblock title %}
 
 {% block page_header %}Все задачи{% endblock page_header %}
@@ -11,7 +10,28 @@
         <h2>НЕТ трэккеров</h2>
     {% endif %}
 
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Summary</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for task in tasks %}
-        <p>{{ task.summary }}: <a href="{% url "view-task" task.id %}">{{ task.description }}</a></p>
+        <tr>
+            <th><a href="{% url "view-task" task.pk %}">{{ task.id }}</a></th>
+            <td>{{ task.summary }}</td>
+            <td>{{ task.description }}</td>
+
+        </tr>
     {% endfor %}
+  </tbody>
+</table>
+
+
+{#    {% for task in tasks %}#}
+{#        <p>{{ task.summary }}: <a href="{% url "view-task" task.id %}">{{ task.description }}</a></p>#}
+{#    {% endfor %}#}
 {% endblock content %}
