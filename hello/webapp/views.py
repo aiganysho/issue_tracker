@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import View, TemplateView, RedirectView
+from django.views.generic import TemplateView
 
 from webapp.models import Task
-from webapp.form import TaskForm, TaskDeleteForm
+from webapp.form import TaskForm
 
 # Create your views here.
 
@@ -79,7 +79,6 @@ class DeleteTask(TemplateView):
 
     def post(self, request, **kwargs):
         task = get_object_or_404(Task, pk=kwargs.get('pk'))
-        # form = TaskDeleteForm(data=request.POST)
         task.delete()
         return redirect('list-task')
-        # return render(request, self.template_name, context={'task': task, 'form': form})
+
