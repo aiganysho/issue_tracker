@@ -18,7 +18,9 @@ from django.urls import path
 from webapp.views import (
     IndexView,
     TaskView,
-    task_create_view
+    CreateTask,
+    UpdateTask,
+    DeleteTask
 )
 
 
@@ -27,5 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='list-task'),
     path('<int:pk>/', TaskView.as_view(), name='view-task'),
-    path('add/', task_create_view, name='add-task')
+    path('add/', CreateTask.as_view(), name='add-task'),
+    path('<int:pk>/update', UpdateTask.as_view(), name='update-task'),
+    path('<int:pk>/delete', DeleteTask.as_view(), name='delete-task')
 ]
