@@ -15,7 +15,7 @@
     <p class="card-text">Summary: {{ task.summary }}</p>
     <p class="card-text">Description: {{ task.description }}</p>
     <p class="card-text">Status: {{ task.status }}</p>
-    <p class="card-text">Type: {{ task.type }}</p>
+    <p class="card-text">Type: {% for type in task.type.all %}{{ type.name }} {% if not forloop.last %}{% endif %} {% endfor %}</p>
     <p class="card-text">Time create: {{ task.created_at }}</p>
     <p class="card-text">Time update: {{ task.updated_at }}</p>
   </div>
