@@ -37,9 +37,9 @@ class CreateTask(TemplateView):
             task = Task.objects.create(
                 summary=form.cleaned_data.get('summary'),
                 description=form.cleaned_data.get('description'),
-                status=form.cleaned_data.get('status'),
-                type=form.cleaned_data.get('type')
+                status=form.cleaned_data.get('status')
             )
+            task.type.set(form.cleaned_data.get('type'))
             return redirect('view-task', pk=task.id)
         return render(request, self.template_name, context={'form': form})
 
@@ -51,7 +51,9 @@ class UpdateTask(TemplateView):
         task = get_object_or_404(Task, id=kwargs.get('pk'))
         form = TaskForm(initial={
             'summary': task.summary,
-            'description': task.description
+            'description': task.description,
+            'status': task.status,
+            'type': task.type.all()
         })
         kwargs['form'] = form
         kwargs['task'] = task
@@ -61,9 +63,12 @@ class UpdateTask(TemplateView):
         task = get_object_or_404(Task, id=kwargs.get('pk'))
         form = TaskForm(data=request.POST)
         if form.is_valid():
-            task.summary = form.cleaned_data.get('summary'),
+            task.summary = form.cleaned_data.get('summary')
             task.description = form.cleaned_data.get('description')
+            task.status = form.cleaned_data.get('status')
+            type = form.cleaned_data.pop('type')
             task.save()
+            task.type.set(type)
             return redirect('view-task', pk=kwargs.get('pk'))
         kwargs['form'] = form
         kwargs['task'] = task
