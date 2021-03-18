@@ -45,12 +45,14 @@
   "model": "webapp.task",
   "pk": 1,
   "fields": {
-    "created_at": "2021-03-11T10:40:08.254Z",
-    "updated_at": "2021-03-11T10:40:08.254Z",
-    "summary": "write db",
+    "created_at": "2021-03-18T08:52:19.707Z",
+    "updated_at": "2021-03-18T08:52:19.707Z",
+    "summary": "write data base",
     "description": "dwjfhdu heufiowjh heuwioqyewhd bciwogyeb",
-    "status": 1,
-    "type": 1
+    "status": 3,
+    "type": [
+      1
+    ]
   }
 },
 {
@@ -62,7 +64,7 @@
     "summary": "read XXX",
     "description": "dfkdjgi ervjifokvnfdj nueihv",
     "status": 2,
-    "type": 2
+    "type": []
   }
 },
 {
@@ -74,7 +76,7 @@
     "summary": "update Tracker",
     "description": "",
     "status": 3,
-    "type": 3
+    "type": []
   }
 },
 {
@@ -86,7 +88,7 @@
     "summary": "documents",
     "description": "dcuhdu cusigdbc uiwhxoa hioxwhsx chuwh",
     "status": 1,
-    "type": 2
+    "type": []
   }
 },
 {
@@ -98,7 +100,7 @@
     "summary": "j6ythtyhj",
     "description": "drctfuv ivub bygft c ty cfrxytv",
     "status": 3,
-    "type": 1
+    "type": []
   }
 },
 {
@@ -110,7 +112,51 @@
     "summary": "To delete some tasks",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 2,
-    "type": 1
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 12,
+  "fields": {
+    "created_at": "2021-03-15T08:12:18.060Z",
+    "updated_at": "2021-03-15T08:12:18.060Z",
+    "summary": "sddsd",
+    "description": "fedfed",
+    "status": 3,
+    "type": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 13,
+  "fields": {
+    "created_at": "2021-03-18T08:37:39.450Z",
+    "updated_at": "2021-03-18T08:37:39.450Z",
+    "summary": "gihvscgsff",
+    "description": "hjzxgbdscdecedc juhdehuich hewuidhwquge guwidgw guwidgw dgwu gduiwigdyewjdfwbjeb",
+    "status": 2,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 14,
+  "fields": {
+    "created_at": "2021-03-18T08:49:57.565Z",
+    "updated_at": "2021-03-18T08:49:57.565Z",
+    "summary": "uh huhuhuhuhuh ij",
+    "description": "bvgvy gygyugo ygyug gyoiytg fgyol",
+    "status": 2,
+    "type": [
+      1
+    ]
   }
 },
 {
