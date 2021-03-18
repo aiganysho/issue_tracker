@@ -160,6 +160,21 @@
   }
 },
 {
+  "model": "webapp.task",
+  "pk": 15,
+  "fields": {
+    "created_at": "2021-03-18T12:42:34.148Z",
+    "updated_at": "2021-03-18T12:42:34.148Z",
+    "summary": "cehcjb bhcjb behfbge hueiwfjowh",
+    "description": "ejhfheufho hfewufwh huefihwuio jiweofhj ioehfw jipwojef",
+    "status": 3,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
