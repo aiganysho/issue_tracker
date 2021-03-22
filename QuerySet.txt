@@ -1,0 +1,12 @@
+from webapp.models import Task
+from datetime import timedelta, datetime
+from django.db.models import Q
+
+1) qs_1= Task.objects.filter(status__name='Done', updated_at__gte=datetime.now()-timedelta(days=30))
+
+2) qs_1 = Task.objects.filter(status__name__in=['new', 'In Progress'], type__name__in=['Enhancement', 'Task'])
+
+3) a = Q(type__name='Bug')
+   b = Q(status__name='Done')
+   a1 = Q(summary__icontains="bug")
+   tasks = Task.objects.filter(a | b, ~b)
