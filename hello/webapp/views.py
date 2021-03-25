@@ -1,19 +1,52 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
+from django.urls import reverse
+from django.db.models import Q
+from django.utils.http import urlencode
 
 from webapp.models import Task
-from webapp.form import TaskForm
-
+from webapp.form import TaskForm, SearchForm
+from webapp.base_views import CustomFormView
 # Create your views here.
 
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
     template_name = 'index.html'
+    model = Task
+    context_object_name = 'tasks'
+    ordering = ('summary', '-created_at')
+    paginate_by = 10
+    paginate_orphans = 1
+
+    def get(self, request, **kwargs):
+        self.form = SearchForm(request.GET)
+        self.search_data = self.get_search_data()
+        return super(IndexView, self).get(request, **kwargs)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        if self.search_data:
+            queryset = queryset.filter(
+                Q(summary__icontains=self.search_data) |
+                Q(description__icontains=self.search_data)
+            )
+        return queryset
+
+    def get_search_data(self):
+        if self.form.is_valid():
+            return self.form.cleaned_data['search_value']
+        return None
 
     def get_context_data(self, **kwargs):
-        kwargs['tasks'] = Task.objects.all()
-        return super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
+        context['search_form'] = self.form
+
+        if self.search_data:
+            context['query'] = urlencode({'search_value': self.search_data})
+        return context
+
 
 class TaskView(TemplateView):
 
@@ -23,26 +56,22 @@ class TaskView(TemplateView):
         kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
         return super().get_context_data(**kwargs)
 
-class CreateTask(TemplateView):
+
+class CreateTask(CustomFormView):
     template_name = 'task_create.html'
+    form_class = TaskForm
+    redirect_url = 'list-task'
 
-    def get_context_data(self, **kwargs):
-        form = TaskForm()
-        kwargs['form'] = form
-        return super().get_context_data(**kwargs)
+    def form_valid(self, form):
+        type = form.cleaned_data.pop('type')
+        task = Task()
+        for key, value in form.cleaned_data.items():
+            setattr(task, key, value)
 
-    def post(self, request):
-        form = TaskForm(data=request.POST)
-        if form.is_valid():
-            task = Task.objects.create(
-                summary=form.cleaned_data.get('summary'),
-                description=form.cleaned_data.get('description'),
-                status=form.cleaned_data.get('status')
-            )
-            task.type.set(form.cleaned_data.get('type'))
-            return redirect('view-task', pk=task.id)
-        return render(request, self.template_name, context={'form': form})
+        task.save()
+        task.type.set(type)
 
+        return super().form_valid(form)
 
 class UpdateTask(FormView):
     template_name = 'task_update.html'
