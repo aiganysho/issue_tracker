@@ -4,6 +4,7 @@
 
 {% block content %}
     <form action="{% url 'add-task' %}" method="post">
-        {% include "task_form.html" with button_text="create" %}
+        {% include "partial/form.html" with button_text="create" %}
+
     </form>
 {% endblock content %}
