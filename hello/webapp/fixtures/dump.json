@@ -50,6 +50,7 @@
     "summary": "write data base",
     "description": "dwjfhdu heufiowjh heuwioqyewhd bciwogyeb",
     "status": 3,
+    "project": 1,
     "type": [
       1
     ]
@@ -59,12 +60,16 @@
   "model": "webapp.task",
   "pk": 2,
   "fields": {
-    "created_at": "2021-03-11T10:40:40.180Z",
-    "updated_at": "2021-03-11T10:40:40.180Z",
+    "created_at": "2021-03-25T10:21:01.378Z",
+    "updated_at": "2021-03-25T10:21:01.378Z",
     "summary": "read XXX",
-    "description": "dfkdjgi ervjifokvnfdj nueihv",
+    "description": "dfkdjgi ervjifokvnfdj nueihv jefhu hd ehd",
     "status": 2,
-    "type": []
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
   }
 },
 {
@@ -76,6 +81,7 @@
     "summary": "update Tracker",
     "description": "",
     "status": 3,
+    "project": 1,
     "type": []
   }
 },
@@ -88,6 +94,7 @@
     "summary": "documents",
     "description": "dcuhdu cusigdbc uiwhxoa hioxwhsx chuwh",
     "status": 1,
+    "project": 1,
     "type": []
   }
 },
@@ -100,6 +107,7 @@
     "summary": "To delete some tasks",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 2,
+    "project": 1,
     "type": []
   }
 },
@@ -112,6 +120,7 @@
     "summary": "Add login",
     "description": "",
     "status": 2,
+    "project": 1,
     "type": [
       1,
       2
@@ -127,6 +136,7 @@
     "summary": "to check documents",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 1,
+    "project": 1,
     "type": [
       1,
       3
@@ -142,6 +152,7 @@
     "summary": "Article",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
     "status": 1,
+    "project": 1,
     "type": [
       2,
       3
@@ -157,6 +168,7 @@
     "summary": "convey information",
     "description": "ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 2,
+    "project": 1,
     "type": []
   }
 },
@@ -169,6 +181,7 @@
     "summary": "convey information",
     "description": "ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 2,
+    "project": 1,
     "type": [
       1,
       2
@@ -184,6 +197,7 @@
     "summary": "convey information",
     "description": "ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 2,
+    "project": 1,
     "type": [
       1,
       2
@@ -199,6 +213,7 @@
     "summary": "save folder",
     "description": "sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est",
     "status": 3,
+    "project": 1,
     "type": [
       1,
       3
@@ -214,6 +229,7 @@
     "summary": "make a list of teams",
     "description": "Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est",
     "status": 3,
+    "project": 1,
     "type": [
       2,
       3
@@ -229,6 +245,7 @@
     "summary": "write a report",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est?",
     "status": 1,
+    "project": 1,
     "type": [
       1,
       2,
@@ -237,11 +254,313 @@
   }
 },
 {
+  "model": "webapp.task",
+  "pk": 26,
+  "fields": {
+    "created_at": "2021-03-29T07:17:06.621Z",
+    "updated_at": "2021-03-29T07:17:06.621Z",
+    "summary": "5tyhry5rh",
+    "description": "yrhrn5yhbwtgbg4ybr45y45",
+    "status": 1,
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 28,
+  "fields": {
+    "created_at": "2021-03-29T10:12:08.455Z",
+    "updated_at": "2021-03-29T10:12:08.455Z",
+    "summary": "76yhj",
+    "description": "7jhjk8n7jk",
+    "status": 1,
+    "project": 1,
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 29,
+  "fields": {
+    "created_at": "2021-03-29T10:39:06.430Z",
+    "updated_at": "2021-03-29T10:39:06.430Z",
+    "summary": "ijmunhbnjmk,oim",
+    "description": "m,imujnhnjm,oim ,imujhyyjumi,iuyr",
+    "status": 3,
+    "project": 1,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 30,
+  "fields": {
+    "created_at": "2021-03-29T10:39:06.438Z",
+    "updated_at": "2021-03-29T10:39:06.438Z",
+    "summary": "ijmunhbnjmk,oim",
+    "description": "m,imujnhnjm,oim ,imujhyyjumi,iuyr",
+    "status": 3,
+    "project": 1,
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 31,
+  "fields": {
+    "created_at": "2021-03-29T10:39:31.373Z",
+    "updated_at": "2021-03-29T10:39:31.373Z",
+    "summary": "ijmunhbnjmk,oim",
+    "description": "m,imujnhnjm,oim ,imujhyyjumi,iuyr",
+    "status": 3,
+    "project": 1,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 32,
+  "fields": {
+    "created_at": "2021-03-29T10:39:31.380Z",
+    "updated_at": "2021-03-29T10:39:31.380Z",
+    "summary": "ijmunhbnjmk,oim",
+    "description": "m,imujnhnjm,oim ,imujhyyjumi,iuyr",
+    "status": 3,
+    "project": 1,
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 33,
+  "fields": {
+    "created_at": "2021-03-29T11:55:37.980Z",
+    "updated_at": "2021-03-29T11:55:37.980Z",
+    "summary": "ytjmk,hjh",
+    "description": "retetyrjfy gyutiuykhjgfd",
+    "status": 2,
+    "project": 1,
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 34,
+  "fields": {
+    "created_at": "2021-03-29T11:56:09.709Z",
+    "updated_at": "2021-03-29T11:56:09.709Z",
+    "summary": "ytjmk,hjh",
+    "description": "retetyrjfy gyutiuykhjgfd",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 35,
+  "fields": {
+    "created_at": "2021-03-29T11:57:44.490Z",
+    "updated_at": "2021-03-29T11:57:44.490Z",
+    "summary": "ytjmk,hjh",
+    "description": "retetyrjfy gyutiuykhjgfd",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 36,
+  "fields": {
+    "created_at": "2021-03-29T11:58:33.834Z",
+    "updated_at": "2021-03-29T11:58:33.834Z",
+    "summary": "ytjmk,hjh",
+    "description": "retetyrjfy gyutiuykhjgfd",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 37,
+  "fields": {
+    "created_at": "2021-03-29T11:59:02.794Z",
+    "updated_at": "2021-03-29T11:59:02.794Z",
+    "summary": "ytyuykhyjh",
+    "description": "wgtred gyjthyf",
+    "status": 1,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 38,
+  "fields": {
+    "created_at": "2021-03-29T12:11:57.764Z",
+    "updated_at": "2021-03-29T12:11:57.764Z",
+    "summary": "Add login",
+    "description": "dsvf thrgfvrft hyjhtbg werhueijfkh n",
+    "status": 3,
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 39,
+  "fields": {
+    "created_at": "2021-03-29T12:15:10.130Z",
+    "updated_at": "2021-03-29T12:15:10.130Z",
+    "summary": "Add login",
+    "description": "efgrb jyuhg rj765hetrh56th",
+    "status": 3,
+    "project": 2,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 40,
+  "fields": {
+    "created_at": "2021-03-29T12:21:42.706Z",
+    "updated_at": "2021-03-29T12:21:42.706Z",
+    "summary": "ghghdgwhjedwh",
+    "description": "uefhyreujdhckj cwelh.dkwn",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-03-29T08:11:36.869Z",
+    "updated_at": "2021-03-29T08:11:36.869Z",
+    "name": "Test",
+    "description_project": "hgghg",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-03-29T10:05:56.746Z",
+    "updated_at": "2021-03-29T10:05:56.746Z",
+    "name": "gyhub",
+    "description_project": "",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "created_at": "2021-03-29T10:06:52.806Z",
+    "updated_at": "2021-03-29T10:06:52.806Z",
+    "name": "gyhub",
+    "description_project": "",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-03-29T11:25:55.666Z",
+    "updated_at": "2021-03-29T11:25:55.666Z",
+    "name": "65yhj7iu5y6",
+    "description_project": "5yhtjk8oli76u5ynhinj",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-03-29T11:28:43.804Z",
+    "updated_at": "2021-03-29T11:28:43.804Z",
+    "name": "jytnhbg",
+    "description_project": "jukiloiukyj 65uyet hje67uy h",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-03-29T12:21:53.409Z",
+    "updated_at": "2021-03-29T12:21:53.409Z",
+    "name": "j,ug hewdkjxw.he",
+    "description_project": "",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "created_at": "2021-03-29T12:36:55.695Z",
+    "updated_at": "2021-03-29T12:36:55.696Z",
+    "name": "ytnbtgvrfcd",
+    "description_project": "",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 8,
+  "fields": {
+    "created_at": "2021-03-29T12:37:51.219Z",
+    "updated_at": "2021-03-29T12:37:51.220Z",
+    "name": "project",
+    "description_project": "",
+    "start_date": "2021-03-29",
+    "end_date": null
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$L8JEdbqWodvg$I2jN50uq1xmNRT92JvJtvcfxqKJ5CErlTqF3KPqSVPA=",
-    "last_login": "2021-03-11T10:18:14.490Z",
+    "last_login": "2021-03-29T08:11:22.827Z",
     "is_superuser": true,
     "username": "adminka",
     "first_name": "",
