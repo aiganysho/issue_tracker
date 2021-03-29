@@ -7,7 +7,7 @@ class ProjectView(ListView):
     template_name = 'project/project.html'
     model = Project
     context_object_name = 'projects'
-    paginate_by = 2
+    paginate_by = 10
     paginate_orphans = 1
 
 
