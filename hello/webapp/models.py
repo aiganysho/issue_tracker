@@ -37,8 +37,15 @@ class Task(BaseModel):
     summary = models.CharField(max_length=200, null=False, blank=False, verbose_name='Заголовок', validators=[MinLengthValidator(5), ])
     description = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Описание', validators=[MinLengthValidator(10), ])
     status = models.ForeignKey('webapp.Status', on_delete=models.PROTECT, related_name='tasks', null=False, blank=False)
-    type = models.ManyToManyField('webapp.Type', related_name='tasks', null=False, blank=False)
-
+    type = models.ManyToManyField('webapp.Type', related_name='tasks', blank=False)
+    project = models.ForeignKey(
+        'webapp.Project',
+        on_delete=models.CASCADE,
+        related_name='tasks',
+        null=False,
+        blank=False,
+        default=1
+    )
     class Meta:
         db_table = 'Tasks'
         verbose_name = 'Задача'
@@ -48,4 +55,17 @@ class Task(BaseModel):
         return f'{self.id}. {self.summary}: {self.description}'
 
 
+class Project(BaseModel):
+    name = models.CharField(max_length=200, null=False, blank=False, verbose_name='Название')
+    description_project = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Описание проекта')
+    start_date = models.DateField(null=False, blank=False)
+    end_date = models.DateField(null=True, blank=True)
+
+    class Meta:
+        db_table = 'Projects'
+        verbose_name = 'Проект'
+        verbose_name_plural = 'Проекты'
+
+    def __str__(self):
+        return f'{self.id}: {self.name} {self.description_project}'
 

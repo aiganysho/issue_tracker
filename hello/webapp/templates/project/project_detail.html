@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block menu %}
+          <li><a href="{% url "add-project" %}">Create project</a></li>
+          <li><a href="{% url "add-task" project.pk %}">Create Task</a></li>
+          <li><a href="{% url "list-project" %}">List project</a></li>
+{% endblock menu %}
+
+{% block page_header %}Проект {{ project.id }}{% endblock page_header %}
+
+{% block content %}
+    <div class="card text-dark bg-info mb-3" style="max-width: 45rem;">
+  <div class="card-header">Project</div>
+  <div class="card-body">
+    <p class="card-text">Name: {{ project.name}}</p>
+    <p class="card-text">Description: {{ project.description_project }}</p>
+{#    <p class="card-text">Status: {{ task.status }}</p>#}
+{#    <p class="card-text">Type: {% for type in task.type.all %}{{ type.name }} {% if not forloop.last %}{% endif %} {% endfor %}</p>#}
+    <p class="card-text">Start date: {{ project.start_date }}</p>
+    <p class="card-text">End date: {{ project.end_date }}</p>
+  </div>
+</div>
+
+
+    {% if not project.tasks.all %}
+        <h2>No trackers</h2>
+    {% endif %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Summary</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for task in project.tasks.all %}
+                <tr>
+                    <th><a href="{% url "view-task" task.pk %}">{{ task.id }}</a></th>
+                    <td>{{ task.summary }}</td>
+                    <td>{{ task.description }}</td>
+                </tr>
+            {% endfor %}
+          {% include 'partial/paginate.html' %}
+          </tbody>
+        </table>
+
+{% endblock content %}
