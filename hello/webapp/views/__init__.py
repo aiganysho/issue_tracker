@@ -10,5 +10,7 @@ from webapp.views.trackers import (
 from webapp.views.project import (
     ProjectView,
     ProjectDetailView,
-    ProjectCreate
+    ProjectCreate,
+    ProjectUpdate,
+    ProjectDelete
 )
