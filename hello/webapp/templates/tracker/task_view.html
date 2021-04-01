@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block menu %}
-          <li><a href="{% url "add-task" task.pk %}">Create task</a></li>
           <li><a href="{% url "delete-task" task.id %}">Delete task</a></li>
           <li><a href="{% url "update-task" task.pk %}">Update task</a></li>
 {% endblock menu %}
