@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView, FormView, ListView, CreateView
-from django.urls import reverse
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import DetailView, FormView, ListView, CreateView, TemplateView, UpdateView, DeleteView
+from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.utils.http import urlencode
 
@@ -48,13 +48,15 @@ class IndexView(ListView):
         return context
 
 
-class TaskView(TemplateView):
-
+class TaskView(DetailView):
+    model = Task
     template_name = 'tracker/task_view.html'
 
-    def get_context_data(self, **kwargs):
-        kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
-        return super().get_context_data(**kwargs)
+    # template_name = 'tracker/task_view.html'
+    #
+    # def get_context_data(self, **kwargs):
+    #     kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
+    #     return super().get_context_data(**kwargs)
 
 
 class CreateTask(CreateView):
@@ -72,45 +74,55 @@ class CreateTask(CreateView):
 
 
 
-class UpdateTask(FormView):
+class UpdateTask(UpdateView):
+    model = Task
     template_name = 'tracker/task_update.html'
     form_class = TaskForm
-
-    def dispatch(self, request, *args, **kwargs):
-        self.task = self.get_object()
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = self.task
-        return context
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['instance'] = self.task
-        return kwargs
-
-    def form_valid(self, form):
-        self.task = form.save()
-        return super().form_valid(form)
+    context_object_name = 'task'
 
     def get_success_url(self):
-        return reverse('view-task', kwargs={'pk': self.task.pk})
-
-    def get_object(self):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(Task, pk=pk)
+        return reverse('view-task', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class DeleteTask(TemplateView):
+    # def dispatch(self, request, *args, **kwargs):
+    #     self.task = self.get_object()
+    #     return super().dispatch(request, *args, **kwargs)
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['task'] = self.task
+    #     return context
+    #
+    # def get_form_kwargs(self):
+    #     kwargs = super().get_form_kwargs()
+    #     kwargs['instance'] = self.task
+    #     return kwargs
+    #
+    # def form_valid(self, form):
+    #     self.task = form.save()
+    #     return super().form_valid(form)
+    #
+    # def get_success_url(self):
+    #     return reverse('view-task', kwargs={'pk': self.task.pk})
+    #
+    # def get_object(self):
+    #     pk = self.kwargs.get('pk')
+    #     return get_object_or_404(Task, pk=pk)
+
+
+class DeleteTask(DeleteView):
+    model = Task
     template_name = 'tracker/task_delete.html'
+    context_object_name = 'task'
+    success_url = reverse_lazy('list-task')
 
-    def get_context_data(self, **kwargs):
-        kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
-        return super().get_context_data(**kwargs)
+    # def get_context_data(self, **kwargs):
+    #     kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
+    #     return super().get_context_data(**kwargs)
+    #
+    # def post(self, request, **kwargs):
+    #     task = get_object_or_404(Task, pk=kwargs.get('pk'))
+    #     task.delete()
+    #     return redirect('list-task')
 
-    def post(self, request, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs.get('pk'))
-        task.delete()
-        return redirect('list-task')
 
