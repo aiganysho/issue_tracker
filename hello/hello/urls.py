@@ -23,7 +23,10 @@ from webapp.views import (
     DeleteTask,
     ProjectView,
     ProjectDetailView,
-    ProjectCreate
+    ProjectCreate,
+    ProjectUpdate,
+    ProjectDelete
+
 )
 
 
@@ -37,5 +40,8 @@ urlpatterns = [
     path('<int:pk>/tracker/delete/', DeleteTask.as_view(), name='delete-task'),
     path('', ProjectView.as_view(), name='list-project'),
     path('<int:pk>/', ProjectDetailView.as_view(), name='view-project'),
-    path('add/', ProjectCreate.as_view(), name='add-project')
+    path('add/', ProjectCreate.as_view(), name='add-project'),
+    path('<int:pk>/update/', ProjectUpdate.as_view(), name='update-project'),
+    path('<int:pk>/delete/', ProjectDelete.as_view(), name='delete-project')
+
 ]
