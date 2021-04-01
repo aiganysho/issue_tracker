@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Подтвердите удаление статьи{% endblock %}
+{% block page_header %}Are u sure, to delete {{ project.name }}?{% endblock page_header %}
+
+{% block content%}
+    <form action="{% url "delete-project" project.id %}", method="POST">
+        {% include 'partial/form.html' with button_text="Yes" %}
+        <a href="{% url "view-project" project.id %}">Not</a>
+    </form>
+{% endblock content %}>

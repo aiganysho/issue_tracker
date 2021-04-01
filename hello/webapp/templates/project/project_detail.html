@@ -4,6 +4,8 @@
           <li><a href="{% url "add-project" %}">Create project</a></li>
           <li><a href="{% url "add-task" project.pk %}">Create Task</a></li>
           <li><a href="{% url "list-project" %}">List project</a></li>
+          <li><a href="{% url "delete-project" project.id %}">Delete Project</a></li>
+          <li><a href="{% url "update-project" project.id %}">Update Project</a></li>
 {% endblock menu %}
 
 {% block page_header %}Проект {{ project.id }}{% endblock page_header %}
