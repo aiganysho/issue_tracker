@@ -3,6 +3,7 @@ from django.views.generic import DetailView, FormView, ListView, CreateView, Tem
 from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.utils.http import urlencode
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from webapp.models import Task, Project
 from webapp.form import TaskForm, SearchForm
@@ -52,14 +53,9 @@ class TaskView(DetailView):
     model = Task
     template_name = 'tracker/task_view.html'
 
-    # template_name = 'tracker/task_view.html'
-    #
-    # def get_context_data(self, **kwargs):
-    #     kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
-    #     return super().get_context_data(**kwargs)
 
 
-class CreateTask(CreateView):
+class CreateTask(LoginRequiredMixin, CreateView):
     template_name = 'tracker/task_create.html'
     form_class = TaskForm
     model = Task
@@ -74,7 +70,7 @@ class CreateTask(CreateView):
 
 
 
-class UpdateTask(UpdateView):
+class UpdateTask(LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'tracker/task_update.html'
     form_class = TaskForm
@@ -84,45 +80,12 @@ class UpdateTask(UpdateView):
         return reverse('view-task', kwargs={'pk': self.kwargs.get('pk')})
 
 
-    # def dispatch(self, request, *args, **kwargs):
-    #     self.task = self.get_object()
-    #     return super().dispatch(request, *args, **kwargs)
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['task'] = self.task
-    #     return context
-    #
-    # def get_form_kwargs(self):
-    #     kwargs = super().get_form_kwargs()
-    #     kwargs['instance'] = self.task
-    #     return kwargs
-    #
-    # def form_valid(self, form):
-    #     self.task = form.save()
-    #     return super().form_valid(form)
-    #
-    # def get_success_url(self):
-    #     return reverse('view-task', kwargs={'pk': self.task.pk})
-    #
-    # def get_object(self):
-    #     pk = self.kwargs.get('pk')
-    #     return get_object_or_404(Task, pk=pk)
 
-
-class DeleteTask(DeleteView):
+class DeleteTask(LoginRequiredMixin, DeleteView):
     model = Task
     template_name = 'tracker/task_delete.html'
     context_object_name = 'task'
     success_url = reverse_lazy('list-task')
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs['task'] = get_object_or_404(Task, id=kwargs.get('pk'))
-    #     return super().get_context_data(**kwargs)
-    #
-    # def post(self, request, **kwargs):
-    #     task = get_object_or_404(Task, pk=kwargs.get('pk'))
-    #     task.delete()
-    #     return redirect('list-task')
 
 

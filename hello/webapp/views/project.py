@@ -3,6 +3,7 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from webapp.models import Project, Task
 from webapp.form import ProjectForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class ProjectView(ListView):
     template_name = 'project/project.html'
@@ -19,7 +20,7 @@ class ProjectDetailView(DetailView):
     model = Project
 
 
-class ProjectCreate(CreateView):
+class ProjectCreate(LoginRequiredMixin, CreateView):
     template_name = 'project/project_create.html'
     form_class = ProjectForm
     model = Project
@@ -31,7 +32,7 @@ class ProjectCreate(CreateView):
         )
 
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
     template_name = 'project/project_update.html'
     form_class = ProjectForm
@@ -44,7 +45,7 @@ class ProjectUpdate(UpdateView):
 
 
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(LoginRequiredMixin, DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_key = 'project'
