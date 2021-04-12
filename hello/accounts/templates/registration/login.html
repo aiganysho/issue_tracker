@@ -13,7 +13,7 @@
     <div>Неправильный логин или пароль</div>
 {% endif %}
 
-<form action="{% url 'login' %}" method="POST">
+<form action="" method="POST">
     {% csrf_token %}
     <input type="text" name="username">
     <input type="text" name="password">
