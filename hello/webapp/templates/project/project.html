@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block menu %}<li><a href="{% url "add-project" %}">Create project</a></li>{% endblock menu %}
+{% block menu %}<li><a href="{% url "project:add" %}">Create project</a></li>{% endblock menu %}
 {% block title %}Project{% endblock title %}
 
 {% block page_header %}Все проекты{% endblock page_header %}
@@ -21,7 +21,7 @@
           <tbody>
             {% for project in projects %}
                 <tr>
-                    <th><a href="{% url "view-project" project.pk %}"> {{ project.name }}</th>
+                    <th><a href="{% url "project:view" project.pk %}"> {{ project.name }}</th>
                     <th>{{ project.description_project }}</th>
                 </tr>
             {% endfor %}

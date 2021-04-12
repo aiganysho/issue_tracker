@@ -27,7 +27,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse(
-            'view-project',
+            'project:view',
             kwargs={'pk': self.object.pk}
         )
 
@@ -39,7 +39,7 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
     context_key = 'project'
     def get_success_url(self):
         return reverse(
-            'view-project',
+            'project:view',
             kwargs={'pk': self.object.pk}
         )
 
@@ -49,6 +49,6 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_key = 'project'
-    success_url = reverse_lazy('list-project')
+    success_url = reverse_lazy('project:list')
 
 

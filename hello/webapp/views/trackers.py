@@ -66,7 +66,7 @@ class CreateTask(LoginRequiredMixin, CreateView):
         task.project = project
         task.save()
         form.save_m2m()
-        return redirect(reverse('view-project', kwargs={'pk': project.pk}))
+        return redirect(reverse('project:view', kwargs={'pk': project.pk}))
 
 
 
@@ -77,7 +77,7 @@ class UpdateTask(LoginRequiredMixin, UpdateView):
     context_object_name = 'task'
 
     def get_success_url(self):
-        return reverse('view-task', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('project:view-task', kwargs={'pk': self.kwargs.get('pk')})
 
 
 
@@ -85,7 +85,7 @@ class DeleteTask(LoginRequiredMixin, DeleteView):
     model = Task
     template_name = 'tracker/task_delete.html'
     context_object_name = 'task'
-    success_url = reverse_lazy('list-task')
+    success_url = reverse_lazy('project:list-task')
 
 
 

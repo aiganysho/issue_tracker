@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block menu %}<li><a href="{% url "view-project" project.id %}">Back to project</a></li>{% endblock menu %}
+{% block menu %}<li><a href="{% url "project:view" project.id %}">Back to project</a></li>{% endblock menu %}
 {% block page_header %}Update project {{ project.id }}{% endblock page_header %}
 
 {% block content %}
-    <form action="{% url "update-project" project.id %}" method="post">
+    <form action="{% url "project:update" project.id %}" method="post">
         {% include "partial/form.html" with button_text="update" %}
     </form>
 {% endblock content %}

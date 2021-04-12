@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block menu %}
-          <li><a href="{% url "add-project" %}">Create project</a></li>
-          <li><a href="{% url "add-task" project.pk %}">Create Task</a></li>
-          <li><a href="{% url "list-project" %}">List project</a></li>
-          <li><a href="{% url "delete-project" project.id %}">Delete Project</a></li>
-          <li><a href="{% url "update-project" project.id %}">Update Project</a></li>
+          <li><a href="{% url "project:add" %}">Create project</a></li>
+          <li><a href="{% url "project:add-task" project.pk %}">Create Task</a></li>
+          <li><a href="{% url "project:list" %}">List project</a></li>
+          <li><a href="{% url "project:delete" project.id %}">Delete Project</a></li>
+          <li><a href="{% url "project:update" project.id %}">Update Project</a></li>
 {% endblock menu %}
 
 {% block page_header %}Проект {{ project.id }}{% endblock page_header %}
@@ -36,7 +36,7 @@
           <tbody>
             {% for task in project.tasks.all %}
                 <tr>
-                    <th><a href="{% url "view-task" task.pk %}">{{ task.id }}</a></th>
+                    <th><a href="{% url "project:view-task" task.pk %}">{{ task.id }}</a></th>
                     <td>{{ task.summary }}</td>
                     <td>{{ task.description }}</td>
                 </tr>

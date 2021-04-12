@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-    <li><a href="{% url "list-project"  %}">Projects</a></li>
+    <li><a href="{% url "project:list"  %}">Projects</a></li>
 
 {% endblock menu %}
 
@@ -26,7 +26,7 @@
           <tbody>
             {% for task in tasks %}
                 <tr>
-                    <th><a href="{% url "view-task" task.pk %}">{{ task.id }}</a></th>
+                    <th><a href="{% url "project:view-task" task.pk %}">{{ task.id }}</a></th>
                     <td>{{ task.summary }}</td>
                     <td>{{ task.description }}</td>
                 </tr>

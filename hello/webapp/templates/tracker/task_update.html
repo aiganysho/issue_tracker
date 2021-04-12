@@ -4,7 +4,7 @@
 {% block page_header %}Update task {{ task.id }}{% endblock page_header %}
 
 {% block content %}
-    <form action="{% url "update-task" task.id %}" method="post">
+    <form action="{% url "project:update-task" task.id %}" method="post">
         {% include "partial/form.html" with button_text="update" %}
     </form>
 {% endblock content %}

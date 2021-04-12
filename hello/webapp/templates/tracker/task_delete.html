@@ -4,8 +4,8 @@
 {% block page_header %}Are u sure, to delete {{ task.summarye }}?{% endblock page_header %}
 
 {% block content%}
-    <form action="{% url "delete-task" task.id %}", method="POST">
+    <form action="{% url "project:delete-task" task.id %}", method="POST">
         {% include 'tracker/task_form.html' with button_text="Yes" %}
-        <a href="{% url "view-task" task.id %}">Not</a>
+        <a href="{% url "project:view-task" task.id %}">Not</a>
     </form>
 {% endblock content %}>

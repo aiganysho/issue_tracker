@@ -13,12 +13,13 @@
 <body>
     <nav class="navbar">
         <ul class="menu">
-            <li><a href="{% url "list-task" %}">List task</a></li>
+            <li><a href="{% url "project:list-task" %}">List task</a></li>
             {% block menu %}{% endblock %}
             {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Выйти</a></li>
+                <li><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}">Войти</a></li>
+                <li><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>
+                <li><a href="{% url 'accounts:create' %}?next={{ request.get_full_path }}">Регистрация</a></li>
             {% endif %}
         </ul>
     </nav>
