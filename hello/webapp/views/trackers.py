@@ -59,7 +59,7 @@ class CreateTask(PermissionRequiredMixin, CreateView):
     template_name = 'tracker/task_create.html'
     form_class = TaskForm
     model = Task
-    permission_required = 'webapp.delete_task'
+    permission_required = 'webapp.add_task'
 
     def form_valid(self, form):
         project = get_object_or_404(Project, id=self.kwargs.get('pk'))
@@ -76,7 +76,7 @@ class UpdateTask(PermissionRequiredMixin, UpdateView):
     template_name = 'tracker/task_update.html'
     form_class = TaskForm
     context_object_name = 'task'
-    permission_required = 'webapp.delete_task'
+    permission_required = 'webapp.change_task'
 
     def get_success_url(self):
         return reverse('project:view-task', kwargs={'pk': self.kwargs.get('pk')})

@@ -26,7 +26,7 @@ class ProjectCreate(PermissionRequiredMixin, CreateView):
     template_name = 'project/project_create.html'
     form_class = ProjectForm
     model = Project
-    permission_required = 'webapp.create_project'
+    permission_required = 'webapp.add_project'
 
     def get_success_url(self):
         return reverse(
@@ -40,7 +40,7 @@ class ProjectUpdate(PermissionRequiredMixin, UpdateView):
     template_name = 'project/project_update.html'
     form_class = ProjectForm
     context_key = 'project'
-    permission_required = 'webapp.update_project'
+    permission_required = 'webapp.change_project'
     def get_success_url(self):
         return reverse(
             'project:view',
@@ -73,7 +73,6 @@ class AddUser(PermissionRequiredMixin, UpdateView):
         )
 
     def has_permission(self):
-            # return super().has_permission() and self.get_object().name == self.request.user
             return super().has_permission() and self.request.user in Project.objects.get(
             pk=self.kwargs.get('pk')).user.all()
 
