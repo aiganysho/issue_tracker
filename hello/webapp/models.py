@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
+from django.contrib.auth import get_user_model
 
 
 # Create your models here.
@@ -60,12 +61,15 @@ class Project(BaseModel):
     description_project = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Описание проекта')
     start_date = models.DateField(null=False, blank=False)
     end_date = models.DateField(null=True, blank=True)
+    user = models.ManyToManyField(get_user_model(), null=False, blank=False, verbose_name='Пользователь')
 
     class Meta:
         db_table = 'Projects'
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
+        permissions = [
+            ('have_user', 'есть пользователь')
+        ]
 
     def __str__(self):
         return f'{self.id}: {self.name} {self.description_project}'
-
