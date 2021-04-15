@@ -3,7 +3,7 @@ from django.views.generic import DetailView, FormView, ListView, CreateView, Tem
 from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.utils.http import urlencode
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 from webapp.models import Task, Project
 from webapp.form import TaskForm, SearchForm
@@ -55,10 +55,11 @@ class TaskView(DetailView):
 
 
 
-class CreateTask(LoginRequiredMixin, CreateView):
+class CreateTask(PermissionRequiredMixin, CreateView):
     template_name = 'tracker/task_create.html'
     form_class = TaskForm
     model = Task
+    permission_required = 'webapp.delete_task'
 
     def form_valid(self, form):
         project = get_object_or_404(Project, id=self.kwargs.get('pk'))
@@ -70,22 +71,24 @@ class CreateTask(LoginRequiredMixin, CreateView):
 
 
 
-class UpdateTask(LoginRequiredMixin, UpdateView):
+class UpdateTask(PermissionRequiredMixin, UpdateView):
     model = Task
     template_name = 'tracker/task_update.html'
     form_class = TaskForm
     context_object_name = 'task'
+    permission_required = 'webapp.delete_task'
 
     def get_success_url(self):
         return reverse('project:view-task', kwargs={'pk': self.kwargs.get('pk')})
 
 
 
-class DeleteTask(LoginRequiredMixin, DeleteView):
+class DeleteTask(PermissionRequiredMixin, DeleteView):
     model = Task
     template_name = 'tracker/task_delete.html'
     context_object_name = 'task'
     success_url = reverse_lazy('project:list-task')
+    permission_required = 'webapp.delete_task'
 
 
 
