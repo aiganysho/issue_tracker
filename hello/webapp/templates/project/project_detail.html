@@ -1,11 +1,30 @@
 {% extends "base.html" %}
 
 {% block menu %}
+    {% if perms.webapp.add_project %}
           <li><a href="{% url "project:add" %}">Create project</a></li>
+    {% endif %}
+
+    {% if perms.webapp.add_task %}
           <li><a href="{% url "project:add-task" project.pk %}">Create Task</a></li>
+     {% endif %}
+
+    {% if perms.webapp.view_project %}
           <li><a href="{% url "project:list" %}">List project</a></li>
+    {% endif %}
+
+    {% if perms.webapp.delete_project %}
           <li><a href="{% url "project:delete" project.id %}">Delete Project</a></li>
+    {% endif %}
+
+    {% if perms.webapp.update_project %}
           <li><a href="{% url "project:update" project.id %}">Update Project</a></li>
+    {% endif %}
+
+    {% if perms.webapp.have_user %}
+          <li><a href="{% url "project:add-user" project.id %}">Add User</a></li>
+    {% endif %}
+
 {% endblock menu %}
 
 {% block page_header %}Проект {{ project.id }}{% endblock page_header %}
@@ -20,10 +39,18 @@
     <p class="card-text">End date: {{ project.end_date }}</p>
   </div>
 </div>
+    {% if not project.user.all %}
+        <h2>No users</h2>
+    {% endif %}
+        {% for user in project.user.all %}
+            <p>{{ user.username }}</p>
+        {% endfor %}
+
 
 
     {% if not project.tasks.all %}
         <h2>No trackers</h2>
+
     {% endif %}
         <table class="table">
           <thead>

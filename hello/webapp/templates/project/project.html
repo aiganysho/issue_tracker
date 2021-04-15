@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
-{% block menu %}<li><a href="{% url "project:add" %}">Create project</a></li>{% endblock menu %}
+{% block menu %}
+    {% if perms.webapp.add_project %}
+         <li><a href="{% url "project:add" %}">Create project</a></li>
+    {% endif %}
+{% endblock menu %}
 {% block title %}Project{% endblock title %}
-
 {% block page_header %}Все проекты{% endblock page_header %}
 
 {% block content %}
