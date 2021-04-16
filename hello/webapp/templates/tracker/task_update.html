@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block menu %}<li><a href="{% url "view-task" task.id %}">Back to task</a></li>{% endblock menu %}
+{% block menu %}<li><a href="{% url "project:view-task" task.id %}">Back to task</a></li>{% endblock menu %}
 {% block page_header %}Update task {{ task.id }}{% endblock page_header %}
 
 {% block content %}

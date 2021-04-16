@@ -64,7 +64,7 @@ class AddUser(PermissionRequiredMixin, UpdateView):
     template_name = 'user/user_create.html'
     form_class = ProjectUserForm
     context_object_name = 'project'
-    permission_required = 'webapp.add_user'
+    permission_required = 'webapp.have_user'
 
     def get_success_url(self):
         return reverse(
@@ -73,7 +73,7 @@ class AddUser(PermissionRequiredMixin, UpdateView):
         )
 
     def has_permission(self):
-            return super().has_permission() and self.request.user in Project.objects.get(
-            pk=self.kwargs.get('pk')).user.all()
+        return super().has_permission() and self.request.user in Project.objects.get(
+        pk=self.kwargs.get('pk')).user.all()
 
 
