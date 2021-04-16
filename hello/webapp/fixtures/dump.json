@@ -266,22 +266,6 @@
 },
 {
   "model": "webapp.task",
-  "pk": 31,
-  "fields": {
-    "created_at": "2021-03-29T10:39:31.373Z",
-    "updated_at": "2021-03-29T10:39:31.373Z",
-    "summary": "ijmunhbnjmk,oim",
-    "description": "m,imujnhnjm,oim ,imujhyyjumi,iuyr",
-    "status": 3,
-    "project": 1,
-    "type": [
-      2,
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.task",
   "pk": 32,
   "fields": {
     "created_at": "2021-03-29T10:39:31.380Z",
@@ -289,19 +273,6 @@
     "summary": "ijmunhbnjmk,oim",
     "description": "m,imujnhnjm,oim ,imujhyyjumi,iuyr",
     "status": 3,
-    "project": 1,
-    "type": []
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 33,
-  "fields": {
-    "created_at": "2021-03-29T11:55:37.980Z",
-    "updated_at": "2021-03-29T11:55:37.980Z",
-    "summary": "ytjmk,hjh",
-    "description": "retetyrjfy gyutiuykhjgfd",
-    "status": 2,
     "project": 1,
     "type": []
   }
@@ -333,36 +304,6 @@
     "project": 1,
     "type": [
       2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 37,
-  "fields": {
-    "created_at": "2021-03-29T11:59:02.794Z",
-    "updated_at": "2021-03-29T11:59:02.794Z",
-    "summary": "ytyuykhyjh",
-    "description": "wgtred gyjthyf",
-    "status": 1,
-    "project": 1,
-    "type": [
-      1
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 38,
-  "fields": {
-    "created_at": "2021-03-29T12:11:57.764Z",
-    "updated_at": "2021-03-29T12:11:57.764Z",
-    "summary": "Add login",
-    "description": "dsvf thrgfvrft hyjhtbg werhueijfkh n",
-    "status": 3,
-    "project": 1,
-    "type": [
-      3
     ]
   }
 },
@@ -432,8 +373,8 @@
   "model": "webapp.project",
   "pk": 1,
   "fields": {
-    "created_at": "2021-04-15T12:17:10.684Z",
-    "updated_at": "2021-04-15T12:17:10.684Z",
+    "created_at": "2021-04-15T12:34:48.443Z",
+    "updated_at": "2021-04-15T12:34:48.443Z",
     "name": "Test",
     "description_project": "ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatum nostrum quod sequi sunt ut ipsam, aliquam alias inventore, ad est? Esse deleniti delectus quia iste ea fugit cum est 122455",
     "start_date": "2021-03-29",
@@ -452,9 +393,9 @@
   "model": "webapp.project",
   "pk": 4,
   "fields": {
-    "created_at": "2021-03-29T11:25:55.666Z",
-    "updated_at": "2021-03-29T11:25:55.666Z",
-    "name": "65yhj7iu5y6",
+    "created_at": "2021-04-16T07:08:35.275Z",
+    "updated_at": "2021-04-16T07:08:35.275Z",
+    "name": "65yhj7iu5y6hjgkyugbyg",
     "description_project": "5yhtjk8oli76u5ynhinj",
     "start_date": "2021-03-29",
     "end_date": null,
@@ -509,19 +450,6 @@
     "name": "Project for sss",
     "description_project": "fuyefu fhuewifh aefuhcioe cieofh",
     "start_date": "2021-04-01",
-    "end_date": null,
-    "user": []
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 11,
-  "fields": {
-    "created_at": "2021-04-01T12:36:15.653Z",
-    "updated_at": "2021-04-01T12:36:15.653Z",
-    "name": "jwndhwjebd",
-    "description_project": "ekjerfncjekndmkwe",
-    "start_date": "2021-03-29",
     "end_date": null,
     "user": []
   }
