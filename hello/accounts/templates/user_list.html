@@ -1,0 +1,13 @@
+{% extends 'base.html' %}#}
+{% block title %}Пользователь{% endblock %}
+
+{% block content %}
+
+    {% if not users%}
+        <h2>No users</h2>
+    {% endif %}
+        {% for user in users %}
+            <p><a href="{% url "accounts:user-detail" user.pk %}">{{ user.username }}</a></p>
+        {% endfor %}
+
+    {% endblock %}
