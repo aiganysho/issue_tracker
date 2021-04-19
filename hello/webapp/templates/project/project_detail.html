@@ -25,6 +25,7 @@
           <li><a href="{% url "project:add-user" project.id %}">Add User</a></li>
     {% endif %}
 
+
 {% endblock menu %}
 
 {% block page_header %}Проект {{ project.id }}{% endblock page_header %}
@@ -43,9 +44,8 @@
         <h2>No users</h2>
     {% endif %}
         {% for user in project.user.all %}
-            <p>{{ user.username }}</p>
+            <p><a href="{% url "accounts:user-detail" user.pk %}">{{ user.username }}</a></p>
         {% endfor %}
-
 
 
     {% if not project.tasks.all %}

@@ -4,6 +4,9 @@
     {% if perms.webapp.add_project %}
          <li><a href="{% url "project:add" %}">Create project</a></li>
     {% endif %}
+    {% if perms.accounts.view_user %}
+        <li><a href="{% url "accounts:user-list" %}">Пользователь</a></li>
+    {% endif %}
 {% endblock menu %}
 {% block title %}Project{% endblock title %}
 {% block page_header %}Все проекты{% endblock page_header %}
@@ -14,23 +17,25 @@
         {% else %}
 
     {% endif %}
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for project in projects %}
-                <tr>
-                    <th><a href="{% url "project:view" project.pk %}"> {{ project.name }}</th>
-                    <th>{{ project.description_project }}</th>
-                </tr>
-            {% endfor %}
-          {% include 'partial/paginate.html' %}
-          </tbody>
-        </table>
+{#        <table class="table">#}
+{#          <thead>#}
+{#            <tr>#}
+{#              <th scope="col">Name</th>#}
+{#              <th scope="col">Description</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{#            {% for project in projects %}#}
+{#                <tr>#}
+{#                    <th><a href="{% url "project:view" project.pk %}"> {{ project.name }}</th>#}
+{#                    <th>{{ project.description_project }}</th>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#          {% include 'partial/paginate.html' %}#}
+{#          </tbody>#}
+{#        </table>#}
 
+
+    {% include 'partial/project_list.html' %}
 
 {% endblock content %}

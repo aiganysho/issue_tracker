@@ -61,7 +61,7 @@ class Project(BaseModel):
     description_project = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Описание проекта')
     start_date = models.DateField(null=False, blank=False)
     end_date = models.DateField(null=True, blank=True)
-    user = models.ManyToManyField(get_user_model(), null=False, blank=False, verbose_name='Пользователь')
+    user = models.ManyToManyField(get_user_model(),related_name='projects', null=False, blank=False, verbose_name='Пользователь')
 
     class Meta:
         db_table = 'Projects'

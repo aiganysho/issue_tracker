@@ -17,15 +17,17 @@
             {% block menu %}{% endblock %}
             {% if user.is_authenticated %}
                 <li><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>
+                <li><a href="{% url 'accounts:user-detail' user.id %}">Профиль</a></li>
             {% else %}
                 <li><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>
                 <li><a href="{% url 'accounts:create' %}?next={{ request.get_full_path }}">Регистрация</a></li>
             {% endif %}
+
         </ul>
     </nav>
 
     <div class="container">
-        <h1>{% block page_header %}Задача{% endblock page_header %}</h1>
+        <h1>{% block page_header %}{% endblock page_header %}</h1>
         {% block content %}{% endblock content %}
     </div>
 
