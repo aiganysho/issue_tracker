@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import MyUserCreationForm
-from django.views.generic import DetailView, ListView
+from .forms import MyUserCreationForm, UserChangeForm, ProfileChangeForm
+from django.views.generic import DetailView, ListView, UpdateView
 from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -75,3 +75,50 @@ class UserList(ListView):
     template_name = 'user_list.html'
     context_object_name = 'users'
     permission_required = 'webapp.view_user'
+
+class UserChangeView(UpdateView):
+    model = get_user_model()
+    form_class = UserChangeForm
+    template_name = 'user_change.html'
+    context_object_name = 'usr_obj'
+    profile_form_class = ProfileChangeForm
+
+    def get_context_data(self, **kwargs):
+        context = super(UserChangeView, self).get_context_data()
+        context['profile_form'] = kwargs.get('profile_form')
+        if context['profile_form'] is None:
+            context['profile_form'] = self.get_profile_form()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        user_form = self.get_form()
+        profile_form = self.get_profile_form()
+        if user_form.is_valid() and profile_form.is_valid():
+            return self.form_valid(user_form, profile_form)
+
+    def get_object(self, queryset=None):
+        self.request.user
+
+    def form_invalid(self, user_form, profile_form):
+        context = self.get_context_data(
+            form=user_form,
+            profile_form=profile_form
+        )
+        return self.render_to_response(context)
+
+    def form_valid(self, user_form, profile_form):
+        response = super(UserChangeView, self).form_valid(user_form)
+        profile_form.save()
+        return response
+
+    def get_profile_form(self):
+        form_kwargs = {'instance': self.object.profile}
+        if self.request.method == 'POST':
+            form_kwargs['data'] = self.request.POST
+            form_kwargs['files'] = self.request.FILES
+        return self.profile_form_class(**form_kwargs)
+
+
+    def get_success_url(self):
+        return reverse('accounts:user-detail', kwargs={'pk': object.pk})
