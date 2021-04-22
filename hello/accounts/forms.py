@@ -43,3 +43,32 @@ class ProfileChangeForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user']
+
+class PasswordChangeForm(forms.ModelForm):
+    new_password = forms.CharField(label="Новый пароль", strip=False, widget=forms.PasswordInput)
+    password_confirm = forms.CharField(label="Подтвердите пароль", widget=forms.PasswordInput, strip=False)
+    old_password = forms.CharField(label="Старый пароль", strip=False, widget=forms.PasswordInput)
+
+    def clean_password_confirm(self):
+        new_password = self.cleaned_data.get("new_password")
+        password_confirm = self.cleaned_data.get("password_confirm")
+        if new_password != password_confirm:
+            raise forms.ValidationError('Пароли не совпадают!')
+        return password_confirm
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get('old_password')
+        if not self.instance.check_password(old_password):
+            raise forms.ValidationError('Старый пароль неправильный!')
+        return old_password
+
+    def save(self, commit=True):
+        user = self.instance
+        user.set_password(self.cleaned_data.get("new_password"))
+        if commit:
+            user.save()
+        return user
+
+    class Meta:
+        model = get_user_model()
+        fields = ['new_password', 'password_confirm', 'old_password']
