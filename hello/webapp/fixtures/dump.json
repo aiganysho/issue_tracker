@@ -470,7 +470,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$E5taaDsQcJgd$2MG+WpvDAKkYkWZ/lj+d7eCInTL8iAML0mOZQSpgKUY=",
-    "last_login": "2021-04-22T09:04:09.134Z",
+    "last_login": "2021-04-22T09:12:50.460Z",
     "is_superuser": true,
     "username": "adminka",
     "first_name": "admin",
@@ -547,24 +547,6 @@
     "groups": [
       2
     ],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 8,
-  "fields": {
-    "password": "pbkdf2_sha256$216000$YOb3ELqJL6dT$6xBiHVMDNBdbsOzqJsrAzxDHllbYBe0WJIaGLYj3hsI=",
-    "last_login": "2021-04-22T09:06:31.176Z",
-    "is_superuser": false,
-    "username": "11111111",
-    "first_name": "dwwwdwdwdw",
-    "last_name": "",
-    "email": "jordan@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2021-04-22T09:06:08.196Z",
-    "groups": [],
     "user_permissions": []
   }
 }
