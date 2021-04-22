@@ -1,10 +1,14 @@
 
 {% extends 'base.html' %}
 {% block title %}Пользователь{% endblock %}
-{% block menu_links %}
-    <li><a href="#">Редактировать</a></li>
-    <li><a href="#">Смена пароля</a></li>
+
+{% block menu %}
+    {% if user == user_obj %}
+        <li class="menu_right"><a href="{% url 'accounts:user-password-change' %}">Сменить пароль</a></li>
+        <li class="menu_right"><a href="{% url 'accounts:user-change' %}">Редактировать профиль</a></li>
+    {% endif %}
 {% endblock %}
+
 {% block content %}
     <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}</h1>
     {% if user_obj.profile.avatar %}
