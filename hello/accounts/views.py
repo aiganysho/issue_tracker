@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
+from .models import Profile
 
 
 def register_view(request, *args, **kwargs):
@@ -13,7 +14,8 @@ def register_view(request, *args, **kwargs):
     if request.method == 'POST':
         form = MyUserCreationForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Profile.objects.create(user=user)
             return redirect('project:list')
 
     context['form'] = form
